@@ -84,7 +84,7 @@ def get_api_answer(timestamp):
     try:
         response = requests.get(ENDPOINT, headers=HEADERS, params=payload)
     except requests.RequestException as error:
-        raise RuntimeError(
+        raise ConnectionError(
             f'Ошибка при запросе к {ENDPOINT}, '
             f'с параметрами {payload}: {error}'
         )
